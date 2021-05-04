@@ -1,16 +1,85 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Bbq</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="ru">
+<head>
+  <title>Bbq</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+<header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
+  <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+    <svg class="bi me-2" width="40" height="32">
+      <use xlink:href="#bootstrap"></use>
+    </svg>
+  </a>
+
+  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <li><%= link_to "BBQ!", root_path, class: 'nav-link px-2 link-secondary' %></li>
+    <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+  </ul>
+
+  <div class="col-md-3 text-end">
+    <button type="button" class="btn btn-outline-primary me-2">Login</button>
+    <button type="button" class="btn btn-primary">Sign-up</button>
+  </div>
+</header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <%= msg %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+
+    </div>
+
+
+    <div class="col-lg-3 ">
+      <ul class="nav flex-column border">
+      <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div><!--/span-->
+
+  </div><!--/row-->
+
+
+  <footer>
+    <p>&copy; Company 2016</p>
+  </footer>
+
+</div>
+
+
+
+
+</body>
 </html>
