@@ -12,35 +12,30 @@
 
 <body>
 
-<header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
-  <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-    <svg class="bi me-2" width="40" height="32">
-      <use xlink:href="#bootstrap"></use>
-    </svg>
-  </a>
-
-  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-    <li><%= link_to "BBQ!", root_path, class: 'nav-link px-2 link-secondary' %></li>
-    <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-    <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-    <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-    <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-    <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
-  </ul>
-
-  <div class="col-md-3 text-end">
-    <button type="button" class="btn btn-outline-primary me-2">Login</button>
-    <button type="button" class="btn btn-primary">Sign-up</button>
-  </div>
-</header>
-
 
 <div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-start py-3 mb-4 col-12 border-bottom">
+    <div class="nav col-9 col-md-6 col-md-auto mb-2 mb-md-0">
+      <li><%= link_to "Главная", root_path, class: 'navbar-brand nav-link px-2 link-secondary' %></li>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class="col-md-3 text-end">
+        <%= link_to 'Профиль', current_user, class: 'btn btn-secondary' %>
+        <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, class: 'btn btn-outline-secondary me-2' %>
+      </div>
+    <% else %>
+      <div class="col-md-3 text-end">
+        <%= link_to 'Войти', new_user_session_path, class: 'btn btn-outline-secondary me-2' %></li>
+        <%= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-secondary' %></li>
+      </div>
+    <% end %>
+  </header>
+
   <div class="row">
     <div class="col-lg-9">
-
       <% flash.each do |type, msg| %>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert <%= flash_alert_color_bg(type) %> alert-dismissible fade show" role="alert">
           <%= msg %>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -53,32 +48,17 @@
 
 
     <div class="col-lg-3 ">
-      <ul class="nav flex-column border">
-      <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-    </div><!--/span-->
 
-  </div><!--/row-->
+    </div>
+
+  </div>
 
 
   <footer>
-    <p>&copy; Company 2016</p>
+    <p>&copy; Party Company <%= Time.now.year %></p>
   </footer>
 
 </div>
-
-
 
 
 </body>

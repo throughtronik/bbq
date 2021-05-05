@@ -1,5 +1,5 @@
 <%# Паршиал дляотображения формы создания нового события %>
-<%= form_for(@event) do |f| %>
+<%= form_with(model: @event) do |f| %>
   <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
   <div class="form-group">
@@ -8,6 +8,7 @@
   </div>
 
   <div class="form-group mb-3">
+    <%= f.hidden_field :address %>
     <%= f.label :address %>
     <%= f.text_field :address, class: 'form-control' %>
   </div>
