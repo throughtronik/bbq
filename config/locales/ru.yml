@@ -28,7 +28,7 @@ ru:
       updated: 'Профиль обновлен'
   error:
     zero: 'ошибок'
-    one: 'ошибка'
+    one: 'ошибку'
     few: "%{count} ошибки"
     many: '%{count} ошибок'
   time:
