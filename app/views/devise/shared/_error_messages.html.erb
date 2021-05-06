@@ -1,7 +1,7 @@
 <% if resource.errors.any? %>
-    <% resource.errors.full_messages.each do |msg| %>
+    <% resource.errors.full_messages.each do |error_msg| %>
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <%= msg %>
+        <%= error_msg %>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <% end %>

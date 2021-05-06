@@ -1,8 +1,8 @@
-<h1>Редактировать профиль: <%= @user.name %></h1>
+<%= render partial: 'partials/form_errors', locals: { model: @user } %>
 
-<div class="row">
-  <div class="col-md-6 buffer-top">
-
+<div class="row d-flex justify-content-center mt-5">
+  <div class="col-md-4 align-self-center mt-3">
+    <h1 class="text-center">Редактировать профиль: <%= @user.name %></h1>
     <%= render 'form' %>
 
     <p class="buffer-top">
