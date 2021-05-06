@@ -6,11 +6,11 @@ class User < ApplicationRecord
 
   has_many :events
 
-  before_validation :set_name, on: :create
+  # before_validation :set_name, on: :create
 
   private
-
-  def set_name
-    self.name = "Пользователь #{rand(777)}" if self.name.blank?
-  end
+  #
+  # def set_name
+  #   self.name = "Пользователь #{rand(777)}" if self.name.blank?
+  # end
 end
