@@ -6,7 +6,7 @@
 
       <div class="event-info-inner row">
         <div class="col-md-6">
-          <div class="event-description">
+          <div class="event-description mt-2">
             <h1><%= @event.title %></h1>
             <h3><%= l @event.datetime, format: :short %></h3>
             <h3><small><%= link_to @event.address,
@@ -15,9 +15,11 @@
           </div>
 
           <% if current_user_can_edit?(@event) %>
-            <div class="buffer-top">
+            <div class="buffer-top mb-3">
               <%= link_to 'Изменить', edit_event_path(@event),
                           class: 'btn btn-primary' %>
+              <%= link_to 'Удалить', event_path(@event), method: :delete, data: { confirm: t('alerts.sure')},
+                          class: 'btn btn-danger mx-1' %>
             </div>
           <% end %>
         </div>
