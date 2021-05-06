@@ -26,33 +26,33 @@ class EventsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-end
 
-def update
-  if @event.update(event_params)
-    redirect_to @event, notice: "Event was successfully updated."
-  else
-    render :edit, status: :unprocessable_entity
+  def update
+    if @event.update(event_params)
+      redirect_to @event, notice: "Event was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
-end
 
-def destroy
-  @event.destroy
-  redirect_to events_url, notice: "Event was successfully destroyed."
-end
+  def destroy
+    @event.destroy
+    redirect_to events_url, notice: "Event was successfully destroyed."
+  end
 
-private
+  private
 
-def set_current_user_event
-  @event = current_user.events.find(params[:id])
-end
+  def set_current_user_event
+    @event = current_user.events.find(params[:id])
+  end
 
-# Use callbacks to share common setup or constraints between actions.
-def set_event
-  @event = Event.find(params[:id])
-end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-def event_params
-  params.require(:event).permit(:title, :address, :datetime, :description)
+  def event_params
+    params.require(:event).permit(:title, :address, :datetime, :description)
+  end
 end
 
