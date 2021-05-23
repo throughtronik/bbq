@@ -1,7 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :set_event, only: [:create, :destroy]
   before_action :set_subscription, only: [:destroy]
-  before_action :check_if_user_can_subscribe, only: [:create]
 
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
@@ -27,13 +26,6 @@ class SubscriptionsController < ApplicationController
   end
 
   private
-
-  def check_if_user_can_subscribe
-    if @event.user == current_user
-      redirect_to @event, alert: I18n.t('controllers.subscription.error')
-    end
-  end
-
   def set_subscription
     @subscription = @event.subscriptions.find(params[:id])
   end
