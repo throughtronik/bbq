@@ -20,16 +20,24 @@ ru:
         datetime: 'Дата и время'
         description: 'Описание'
   controllers:
+    comments:
+      created: 'Комментарий создан'
+      destroyed: 'Комментарий удален'
+      error: 'Ошибка, что-то пошло не так'
     events:
       created: 'Событие создано'
       updated: 'Событие обновлено'
       destroyed: 'Событие удалено'
     users:
       updated: 'Профиль обновлен'
+    subscription:
+      created: 'Подписались, огонь!'
+      destroyed: 'Отписались, ну ок =('
+      error: 'Произошла ошибка'
   error:
     zero: 'ошибок'
     one: 'ошибку'
-    few: "%{count} ошибки"
+    few: '%{count} ошибки'
     many: '%{count} ошибок'
   time:
     formats:

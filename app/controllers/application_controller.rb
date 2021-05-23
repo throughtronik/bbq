@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(
       :account_update,
-      keys: [:password, :password_confirmation, :current_password]
+      keys: [:password, :password_confirmation, :current_password],
     )
 
     devise_parameter_sanitizer.permit(
@@ -16,8 +16,9 @@ class ApplicationController < ActionController::Base
     )
   end
 
-  def current_user_can_edit?(event)
-    user_signed_in? && event.user == current_user
+  def current_user_can_edit?(model)
+    user_signed_in? &&
+      (model.user == current_user || (model.try(:event).present? && model.event.user == current_user))
   end
 end
 
