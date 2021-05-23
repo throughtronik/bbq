@@ -29,7 +29,7 @@ class SubscriptionsController < ApplicationController
   private
 
   def check_if_user_can_subscribe
-    if @event.user = current_user
+    if @event.user == current_user
       redirect_to @event, alert: I18n.t('controllers.subscription.error')
     end
   end
