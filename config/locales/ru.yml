@@ -5,6 +5,14 @@ ru:
     name: 'Создатель событий'
     company: 'ПатиХард Компани'
   activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              email_exists: "Такая почта уже существует!"
+            user_name:
+              cant_subscribe_event_owner: "Нельзя подписаться создателя события на событие"
     models:
       user: 'Пользователь'
       event: 'Событие'
