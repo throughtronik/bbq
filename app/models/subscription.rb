@@ -7,8 +7,8 @@ class Subscription < ApplicationRecord
 
   validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
-  validate :user_can_subscribe, if: -> { user.present? }
-  validate :email_exists_in_base, unless: -> { user.present? }
+  validate :subscription_is_not_created_by_user, if: -> { user.present? }
+  validate :email_already_taken, unless: -> { user.present? }
 
   def user_name
     if user.present?
@@ -28,11 +28,11 @@ class Subscription < ApplicationRecord
 
   private
 
-  def email_exists_in_base
+  def email_already_taken
     errors.add(:user_email, :email_exists) if User.exists?(email: user_email)
   end
 
-  def user_can_subscribe
+  def subscription_is_not_created_by_user
     errors.add(:user_name, :cant_subscribe_event_owner) if event.user == user
   end
 end
