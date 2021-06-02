@@ -16,10 +16,14 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      photo: 'Фотка'
+      comment: 'Комментарий'
+      subscription: 'Подписка'
     attributes:
       user:
         email: 'Email'
         name: 'Имя'
+        avatar: 'Аватар'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
       event:
@@ -27,6 +31,14 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      photo:
+        photo: 'Фотка'
+      subscription:
+        user_name: 'Ваше имя'
+        user_email: 'Ваша почта'
+      comment:
+        body: 'Комментарий'
+        user_name: 'Имя'
   controllers:
     comments:
       created: 'Комментарий создан'
@@ -36,6 +48,10 @@ ru:
       created: 'Событие создано'
       updated: 'Событие обновлено'
       destroyed: 'Событие удалено'
+    photos:
+      created: 'Фото добавлено'
+      error: 'Ошибка добавления фото'
+      destroyed: 'Фото удалено'
     users:
       updated: 'Профиль обновлен'
     subscription:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_21_095409) do
+ActiveRecord::Schema.define(version: 2021_06_01_233629) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 2021_05_21_095409) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string "photo", null: false
+    t.integer "event_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_photos_on_event_id"
+    t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.string "user_name"
     t.string "user_email"
@@ -54,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_095409) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

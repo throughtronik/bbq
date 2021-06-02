@@ -1,5 +1,3 @@
-
-
 <%= form_for @user, html: { multipart: true } do |f| %>
 
   <div class="form-group mb-3">
@@ -10,6 +8,12 @@
   <div class="form-group mb-3">
     <%= f.label :email, class: 'form-label' %>
     <%= f.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :avatar %>
+    <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
+    <%= f.file_field :avatar %>
   </div>
 
   <div class="actions buffer-top mb-3">
