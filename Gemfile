@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog-aws'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
