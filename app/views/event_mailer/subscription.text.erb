@@ -1,0 +1,11 @@
+Новая подписка
+----
+
+Имя: <%= @name %>
+Email: <%= @email %>
+
+----------------------
+
+Событие: <%= @event.title %>
+Состоится: <%= l @event.datetime, format: :short %>
+Организатор: <%= @event.user.name %>

@@ -67,4 +67,21 @@ ru:
     formats:
       short: '%d %B %Y %H-%M'
 
+  event_mailer:
+    comment:
+      title: 'Новый коммент'
+      author: 'Докладчик'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    subscription:
+      event: 'Событие'
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Почта'
+      author: 'Автор'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+
+
 
