@@ -12,6 +12,7 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
+gem 'mailjet'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 

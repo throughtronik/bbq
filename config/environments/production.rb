@@ -125,6 +125,7 @@ Rails.application.configure do
 
   ActionMailer::Base.smtp_settings = {
     address: 'in-v3.mailjet.com ',
+    from: ENV[MAILJET_SENDER],
     port: '587',
     user_name: ENV['MAILJET_USERNAME'],
     password: ENV['MAILJET_PASSWORD'],
