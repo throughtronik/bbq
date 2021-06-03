@@ -124,7 +124,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
-    address: 'in-v3.mailjet.com ',
+    address: 'in-v3.mailjet.com',
     from: ENV['MAILJET_SENDER'],
     port: '587',
     user_name: ENV['MAILJET_USERNAME'],
