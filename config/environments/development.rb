@@ -77,16 +77,6 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000'}
 
-  config.action_mailer.delivery_method = :smtp
-
-  ActionMailer::Base.smtp_settings = {
-    address: 'smtp.yandex.ru',
-    from: 'test',
-    port: '465',
-    user_name: 'test',
-    password: 'test',
-    authentication: 'plain',
-    tls: true,
-    enable_starttls_auto: true
-  }
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
 end
