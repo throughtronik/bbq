@@ -82,6 +82,11 @@ ru:
       author: 'Автор'
       datetime: 'Состоится'
       owner: 'Организатор'
-
+    photo:
+      title: 'Добавлено новое фото'
+      event: 'Событие'
+      author: 'Добавил'
+      datetime: 'Состоится'
+      owner: 'Организатор'
 
 
