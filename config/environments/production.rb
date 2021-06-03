@@ -130,6 +130,7 @@ Rails.application.configure do
     user_name: ENV['MAILJET_USERNAME'],
     password: ENV['MAILJET_PASSWORD'],
     authentication: 'plain',
+    tls: true,
     enable_starttls_auto: true
   }
 end
