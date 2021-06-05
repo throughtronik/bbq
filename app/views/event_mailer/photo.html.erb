@@ -1,4 +1,4 @@
-<h1><%= t '.title' %> к <%= @event.title %> </h1>
+<h1><%= t('.title', event_title: @event.title) %> </h1>
 <%= image_tag(@new_photo.photo.thumb.url) %>
 
 <p><%= t '.author' %>: <strong><%= @new_photo.user.name %></strong></p>
