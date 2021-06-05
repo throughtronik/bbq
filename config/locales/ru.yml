@@ -31,6 +31,7 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+        pincode: 'Пин-код доступа'
       photo:
         photo: 'Фотка'
       subscription:
@@ -48,6 +49,7 @@ ru:
       created: 'Событие создано'
       updated: 'Событие обновлено'
       destroyed: 'Событие удалено'
+      wrong_pincode: 'Неверный пинкод'
     photos:
       created: 'Фото добавлено'
       error: 'Ошибка добавления фото'
