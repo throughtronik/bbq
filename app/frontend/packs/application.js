@@ -5,9 +5,9 @@ import * as ActiveStorage from "@rails/activestorage"
 
 import '../styles/application'
 import 'bootstrap/dist/js/bootstrap'
+import 'lightbox2/dist/js/lightbox'
 import '../scripts/ys_map'
 import "@fortawesome/fontawesome-free/css/all"
-
 
 const images = require.context('../images', true)
 

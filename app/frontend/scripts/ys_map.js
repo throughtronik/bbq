@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let map_div_included = document.getElementById('map');
 
     function init() {
-        
+
         if (!map_div_included){
             return;
         };
