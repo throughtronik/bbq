@@ -4,14 +4,14 @@
 
   <% if @user == current_user %>
     <p class="buffer-top">
-      <%= link_to I18n.t('pages.user.edit'), edit_user_path(@user), class: 'btn btn-outline-primary' %>
+      <%= link_to t('pages.user.edit'), edit_user_path(@user), class: 'btn btn-outline-primary' %>
     </p>
   <% end %>
 
   <div class="row">
     <div class="col-md-12">
       <% if @user.events.any? %>
-        <h3><%= I18n.t('pages.user.organized_by') %></h3>
+        <h3><%= t('pages.user.organized_by') %></h3>
         <div class="row">
           <%= render partial: 'events/event', collection: @user.events %>
         </div>
