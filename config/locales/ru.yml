@@ -1,6 +1,38 @@
 ru:
   alerts:
     sure: 'Вы уверены?'
+  buttons:
+    general:
+      submit: 'Отправить'
+      save: 'Сохранить'
+      back: 'Вернуться'
+      home: 'На главную'
+      load: 'Загрузить'
+      change: 'Изменить'
+      subscribe: 'Подписаться'
+    event:
+      create: 'Создать событие'
+
+  pages:
+    events:
+      edit: 'Редактирование события'
+      index: 'События'
+      create: 'Создать событие'
+      pincode: 'Введите пинкод для доступа!'
+      iamgoing: 'Я пойду!'
+      comming: 'Пойдут:'
+      author_calls: 'Зовет:'
+    layout:
+      profile:
+        profile: 'Профиль'
+        logout: 'Выйти'
+        login: 'Войти'
+        register: 'Регистрация'
+    user:
+      change_pass: 'Изменить пароль'
+      edit: 'Редактировать профиль'
+      organized_by: 'Организовал'
+      organized_none: 'Пользователь пока не организовал ни одного события'
   app:
     name: 'Создатель событий'
     company: 'ПатиХард Компани'

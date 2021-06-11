@@ -7,13 +7,13 @@
   </div>
 
   <% unless user_signed_in? %>
-    <div class="form-group">
+    <div class="form-group mb-3">
       <%= f.label :user_name %>
       <%= f.text_field :user_name, class: 'form-control' %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit 'Отправить', class: 'btn btn-primary' %>
+    <%= f.submit t('buttons.general.submit'), class: 'btn btn-primary' %>
   </div>
 <% end %>
