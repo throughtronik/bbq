@@ -8,7 +8,7 @@ import '../styles/application'
 import 'bootstrap/dist/js/bootstrap'
 import 'lightbox2/dist/js/lightbox'
 import '../scripts/ys_map'
-import "@fortawesome/fontawesome-free/css/all"
+import "@fortawesome/fontawesome-free/js/all"
 
 import lightbox from 'lightbox2/dist/js/lightbox'
 
