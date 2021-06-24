@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_05_223806) do
+ActiveRecord::Schema.define(version: 2021_06_24_091406) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2021_06_05_223806) do
 
   create_table "photos", force: :cascade do |t|
     t.string "photo", null: false
-    t.integer "event_id"
-    t.integer "user_id"
+    t.integer "event_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_photos_on_event_id"
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 2021_06_05_223806) do
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
   add_foreign_key "events", "users"
+  add_foreign_key "photos", "events"
+  add_foreign_key "photos", "users"
   add_foreign_key "subscriptions", "events"
   add_foreign_key "subscriptions", "users"
 end
