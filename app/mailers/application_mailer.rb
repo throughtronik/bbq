@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "#{ENV['MAILJET_SENDER_NAME']} <#{ENV['MAILJET_SENDER']}>" || ENV['DEV_MAIL_SENDER']
+  default from: Rails.application.credentials[Rails.env.to_sym][:mail_sender]
   layout 'mailer'
 end
