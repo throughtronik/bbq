@@ -2,8 +2,8 @@ class CreatePhotos < ActiveRecord::Migration[6.1]
   def change
     create_table :photos do |t|
       t.string :photo
-      t.references :event
-      t.references :user
+      t.references :event, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
