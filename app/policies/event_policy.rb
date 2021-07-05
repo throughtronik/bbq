@@ -32,6 +32,6 @@ class EventPolicy < ApplicationPolicy
   private
 
   def user_is_owner?(record)
-    user.present? && (record.try(:user) == user)
+    user.present? && record.user == user
   end
 end
