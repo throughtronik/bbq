@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :set_event, only: %i[show edit update destroy]
-  after_action :verify_authorized, except: %i[index show]
+  after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
 
   def index
@@ -15,9 +15,9 @@ class EventsController < ApplicationController
 
     authorize @event
 
-    rescue Pundit::NotAuthorizedError
-      flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
-      render 'password_form'
+  rescue Pundit::NotAuthorizedError
+    flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
+    render 'password_form'
   end
 
   def new
@@ -60,11 +60,6 @@ class EventsController < ApplicationController
 
   private
 
-  def set_current_user_event
-    @event = current_user.events.find(params[:id])
-  end
-
-  # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
   end
@@ -73,4 +68,3 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
   end
 end
-
