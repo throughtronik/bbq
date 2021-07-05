@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe EventPolicy do
-  let(:user) { User.new(name: 'Event Owner') }
-  let(:another_user) { User.new(name: 'Other User') }
-  let(:event_wo_pincode) { Event.new(user: user) }
-  let(:event_w_pincode) { Event.new(user: user, pincode: '123') }
+  let(:user) { create (:user) }
+  let(:another_user) { create (:user) }
+  let(:event_wo_pincode) { create(:event, user: user) }
+  let(:event_w_pincode) { create(:event, user: user, pincode: '123') }
 
   subject { described_class }
 
-  describe 'unauthorized user' do
+  context 'unauthorized user' do
     let(:unauthorized_user) { UserContext.new(nil, {}) }
 
     permissions :create?, :edit?, :update?, :destroy? do
@@ -28,7 +28,7 @@ RSpec.describe EventPolicy do
     end
   end
 
-  describe 'authorized event owner' do
+  context 'authorized event owner' do
     let(:event_user) { UserContext.new(user, nil) }
 
     permissions :create? do
@@ -56,7 +56,7 @@ RSpec.describe EventPolicy do
     end
   end
 
-  describe 'authorized event owner' do
+  context 'authorized not event owner' do
     let(:user_wo_event) { UserContext.new(another_user, { "#events_#{event_w_pincode.id}_pincode" => "123" }) }
 
     permissions :create? do

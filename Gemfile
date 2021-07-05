@@ -22,8 +22,9 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3', '~> 1.4'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 5.0.0'
   gem 'rack-mini-profiler', '~> 2.0'
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'factory_bot_rails', '~> 5.2'
 end
 
 group :development do
