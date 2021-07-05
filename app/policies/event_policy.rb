@@ -3,6 +3,14 @@ class EventPolicy < ApplicationPolicy
     user.present?
   end
 
+  def destroy?
+    update?
+  end
+
+  def edit?
+    update?
+  end
+
   def show?
     return true if record.pincode.blank?
     return true if !record.pincode.blank? && user == record.user
@@ -11,15 +19,7 @@ class EventPolicy < ApplicationPolicy
     false
   end
 
-  def edit?
-    user_is_owner?(record)
-  end
-
   def update?
-    user_is_owner?(record)
-  end
-
-  def destroy?
     user_is_owner?(record)
   end
 
