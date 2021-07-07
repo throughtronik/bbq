@@ -370,7 +370,7 @@ DEPENDENCIES
   capistrano-passenger (~> 0.2)
   capistrano-rails (~> 1.6)
   capistrano-rbenv (~> 2.1)
-  capistrano-resque
+  capistrano-resque (~> 0.2.3)
   capybara (>= 3.26)
   carrierwave
   devise
