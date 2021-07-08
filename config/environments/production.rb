@@ -2,9 +2,13 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
-  config.active_job.queue_adapter = :resque
-  config.active_job.queue_name_prefix = "bbq_#{Rails.env}"
+  if ENV['IS_HEROKU'] == 'true'
+    config.action_mailer.default_url_options = { host: Rails.application.credentials[Rails.env.to_sym][:action_mailer_heroku_url] }
+  else
+    config.action_mailer.default_url_options = { host: Rails.application.credentials[Rails.env.to_sym][:action_mailer_default_url] }
+    config.active_job.queue_adapter = :resque
+    config.active_job.queue_name_prefix = "bbq_#{Rails.env}"
+  end
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -121,7 +125,6 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.action_mailer.default_url_options = { host: Rails.application.credentials[Rails.env.to_sym][:action_mailer_default_url] }
 
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
