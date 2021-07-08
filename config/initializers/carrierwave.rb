@@ -8,6 +8,6 @@ if Rails.env.production?
       aws_secret_access_key: Rails.application.credentials[Rails.env.to_sym][:aws][:secret_key]
     }
 
-    config.fog_directory = Rails.application.credentials[Rails.env.to_sym][:aws][:anyonebutbbq2]
+    config.fog_directory = Rails.application.credentials[Rails.env.to_sym][:aws][:bucket_name]
   end
 end
