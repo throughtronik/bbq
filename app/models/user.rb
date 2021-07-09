@@ -4,9 +4,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 35 }
 
-  has_many :events
+  has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :destroy
 
   after_commit :link_subscriptions, on: :create
 
