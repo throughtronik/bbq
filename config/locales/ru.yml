@@ -12,7 +12,9 @@ ru:
       subscribe: 'Подписаться'
     event:
       create: 'Создать событие'
-
+  errors:
+    messages:
+      extension_whitelist_error: 'вы загружаете не подходящий файл'
   pages:
     events:
       edit: 'Редактирование события'
@@ -29,7 +31,7 @@ ru:
         login: 'Войти'
         register: 'Регистрация'
     user:
-      change_pass: 'Изменить пароль'
+      change_pass_or_cancel: 'Изменить пароль или удалиться'
       edit: 'Редактировать профиль'
       organized_by: 'Организовал'
       organized_none: 'Пользователь пока не организовал ни одного события'
@@ -61,6 +63,7 @@ ru:
         avatar: 'Аватар'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+        current_password: 'Текущий пароль'
       event:
         title: 'Название'
         address: 'Место проведения'

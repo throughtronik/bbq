@@ -1,0 +1,41 @@
+<div class="row d-flex justify-content-center mt-5">
+  <div class="col-md-4 align-self-center mt-3">
+    <h1 class="text-center">Изменить пароль или удалиться: <%= @user.name %></h1>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+
+      <div class="field form-group mb-3">
+        <%= f.label :password, class: 'form-label' %>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        <% if @minimum_password_length %>
+          <small class="form-text text-muted"><%= @minimum_password_length %> символов минимум </small>
+        <% end %>
+      </div>
+
+      <div class="field form-group mb-3">
+        <%= f.label :password_confirmation, class: 'form-label' %><br/>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password, class: 'form-label' %>
+        <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+        <small class="form-text text-muted">Подтвердите пароль для изменения</small>
+      </div>
+
+      <div class="actions buffer-top mb-3">
+        <%= f.submit "Обновить", class: 'btn btn-primary' %>
+        <%= button_to "Удалиться", registration_path(resource_name), data: { confirm: t('alerts.sure') }, method: :delete, class: 'btn btn-danger' %>
+        <%= link_to "Назад", :back, class: 'btn btn-secondary'  %>
+      </div>
+    <% end %>
+
+
+  </div>
+</div>
