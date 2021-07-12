@@ -39,10 +39,12 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: 'Подтверждение пароля' %>
       </div>
 
-      <div class="actions mb-3 text-center">
+      <div class="actions mb-2 text-center">
         <%= f.submit "Зарегистрироваться", class: 'btn btn-primary' %>
       </div>
     <% end %>
+    <%= render "devise/shared/links" %>
   </div>
 </div>
-<%#= render "devise/shared/links" %>
+
+

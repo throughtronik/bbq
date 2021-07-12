@@ -13,6 +13,7 @@ ru:
     event:
       create: 'Создать событие'
   errors:
+    oauth_auth_error: 'Ошибка авторизации'
     messages:
       extension_whitelist_error: 'вы загружаете не подходящий файл'
   pages:
