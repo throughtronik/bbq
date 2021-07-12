@@ -16,14 +16,16 @@ gem 'mailjet'
 gem 'pundit', '~> 2.1.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'resque', '~> 2.0.0'
+gem 'omniauth-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+gem 'omniauth-rails_csrf_protection'
 
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3', '~> 1.4'
   gem 'pry-rails'
   gem 'rack-mini-profiler', '~> 2.0'
-  gem 'rspec-rails', '~> 5.0.0'
-  gem 'factory_bot_rails', '~> 5.2'
 end
 
 group :development do
@@ -47,4 +49,6 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'factory_bot_rails', '~> 5.2'
 end

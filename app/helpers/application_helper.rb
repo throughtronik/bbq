@@ -39,6 +39,14 @@ module ApplicationHelper
 
   def user_avatar(user)
     return user.avatar.url if user.avatar?
+
+    # Check if User has removed OAuth app integration on provider service
+    if user.provider_avatar_url?
+      provider_avatar_uri = URI(user.provider_avatar_url)
+      res = Net::HTTP.get_response(provider_avatar_uri)
+      return user.provider_avatar_url if [Net::HTTPFound, Net::HTTPOK].include?(res.class)
+    end
+
     asset_pack_path('media/images/user.png')
   end
 
