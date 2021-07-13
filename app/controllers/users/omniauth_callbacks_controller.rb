@@ -7,6 +7,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     authorize(__method__)
   end
 
+  private
+
   def authorize(provider)
     @user = User.find_for_provider_oauth(request.env['omniauth.auth'])
 
@@ -23,4 +25,5 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to root_path
     end
   end
+
 end
