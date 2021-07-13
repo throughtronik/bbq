@@ -40,7 +40,7 @@ class User < ApplicationRecord
 
     where(url: url, provider: provider).first_or_create! do |user|
       user.name = name
-      user.email = email
+      user.email = email unless email.nil?
       user.provider_avatar_url = avatar
       user.password = Devise.friendly_token.first(16)
     end
