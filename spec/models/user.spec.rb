@@ -22,7 +22,6 @@ RSpec.describe User, type: :model do
 
     context 'when user is found by email' do
       let!(:existing_user) { create(:user, email: 'no@mail.ru') }
-      let!(:some_other_user) { create(:user) }
 
       it 'returns this user' do
         expect(User.find_for_facebook_oauth(access_token)).to eq existing_user
