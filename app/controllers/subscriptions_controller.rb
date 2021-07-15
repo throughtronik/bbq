@@ -17,7 +17,7 @@ class SubscriptionsController < ApplicationController
   def destroy
     message = { notice: I18n.t('controllers.subscription.destroyed') }
 
-    if current_user_can_edit?(@subscription)
+    if policy(@subscription).edit?
       @subscription.destroy
     else
       message = { alert: I18n.t('controllers.subscription.error') }
