@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_event, only: [:create, :destroy]
+  before_action :set_event, only: %i[create destroy]
   before_action :set_subscription, only: [:destroy]
 
   def create
@@ -27,6 +27,7 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+
   def set_subscription
     @subscription = @event.subscriptions.find(params[:id])
   end

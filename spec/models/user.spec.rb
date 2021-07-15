@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
         :access_token,
         provider: 'facebook',
         info: double(email: 'no@mail.ru', image: 'some-image.jpg'),
-        extra: double(raw_info: double(id: 10213477015136709, name: 'No_name'))
+        extra: double(raw_info: double(id: 10_213_477_015_136_709, name: 'No_name'))
       )
     end
 
@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
     context 'when user is found by provider & url' do
       let!(:existing_user) do
         create(:user, provider: 'facebook',
-               url: 'https://facebook.com/10213477015136709')
+                      url: 'https://facebook.com/10213477015136709')
       end
 
       let!(:some_other_user) { create(:user) }
@@ -42,4 +42,3 @@ RSpec.describe User, type: :model do
     end
   end
 end
-

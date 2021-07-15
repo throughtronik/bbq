@@ -16,7 +16,6 @@ class User < ApplicationRecord
   private
 
   def self.find_for_provider_oauth(access_token)
-
     email = access_token.info.email
 
     user = where(email: email).first
@@ -31,10 +30,10 @@ class User < ApplicationRecord
     avatar = access_token.info.image
 
     case provider
-    when "vkontakte"
+    when 'vkontakte'
       url = "https://vk.com/#{id}"
       name = "#{access_token.extra.raw_info.first_name} #{access_token.extra.raw_info.last_name}"
-    when "facebook"
+    when 'facebook'
       url = "https://facebook.com/#{id}"
       name = access_token.extra.raw_info.name
     end
@@ -48,7 +47,7 @@ class User < ApplicationRecord
   end
 
   def link_subscriptions
-    Subscription.where(user_id: nil, user_email: self.email).update_all(user_id: self.id)
+    Subscription.where(user_id: nil, user_email: email).update_all(user_id: id)
   end
 
   def send_devise_notification(notification, *args)

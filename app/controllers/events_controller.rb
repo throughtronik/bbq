@@ -14,7 +14,6 @@ class EventsController < ApplicationController
     end
 
     authorize @event
-
   rescue Pundit::NotAuthorizedError
     flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
     render 'password_form'

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe EventPolicy do
-  let(:user) { create (:user) }
-  let(:another_user) { create (:user) }
+  let(:user) { create(:user) }
+  let(:another_user) { create(:user) }
   let(:event_wo_pincode) { create(:event, user: user) }
   let(:event_w_pincode) { create(:event, user: user, pincode: '123') }
 
@@ -57,7 +57,7 @@ RSpec.describe EventPolicy do
   end
 
   context 'authorized not event owner' do
-    let(:user_wo_event) { UserContext.new(another_user, { "#events_#{event_w_pincode.id}_pincode" => "123" }) }
+    let(:user_wo_event) { UserContext.new(another_user, { "#events_#{event_w_pincode.id}_pincode" => '123' }) }
 
     permissions :create? do
       it { is_expected.to permit(user_wo_event, Event) }

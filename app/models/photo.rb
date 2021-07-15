@@ -6,5 +6,5 @@ class Photo < ApplicationRecord
 
   validates :photo, presence: true
 
-  scope :persisted, -> { where 'id IS NOT NULL'}
+  scope :persisted, -> { where 'id IS NOT NULL' }
 end

@@ -1,8 +1,7 @@
 module ApplicationHelper
   def flash_alert_color_bg(type)
     colors = { 'notice' => 'alert-success',
-               'alert' => 'alert-danger'
-    }
+               'alert' => 'alert-danger' }
 
     return 'alert-secondary' if colors[type].nil?
 
