@@ -21,8 +21,8 @@ class User < ApplicationRecord
 
     user = where(email: email).first
 
-    if user.present? && user.provider_avatar_url != access_token.info.image
-      user.update(provider_avatar_url: access_token.info.image)
+    if user.present?
+      user.update(provider_avatar_url: access_token.info.image) if user.provider_avatar_url != access_token.info.image
       return user
     end
 
