@@ -17,11 +17,12 @@ class User < ApplicationRecord
 
   def self.find_for_provider_oauth(access_token)
     email = access_token.info.email
+    return if email.nil?
 
     user = where(email: email).first
 
-    if user.present?
-      user.update(provider_avatar_url: access_token.info.image) if access_token.info.image != user.provider_avatar_url
+    if user.present? && user.provider_avatar_url != access_token.info.image
+      user.update(provider_avatar_url: access_token.info.image)
       return user
     end
 
@@ -38,12 +39,8 @@ class User < ApplicationRecord
       name = access_token.extra.raw_info.name
     end
 
-    where(url: url, provider: provider).first_or_create! do |user|
-      user.name = name
-      user.email = email unless email.nil?
-      user.provider_avatar_url = avatar
-      user.password = Devise.friendly_token.first(16)
-    end
+    where(url: url, provider: provider).first_or_create!(name: name, provider_avatar_url: avatar, email: email,
+                                                         password: Devise.friendly_token.first(16))
   end
 
   def link_subscriptions
