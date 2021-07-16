@@ -120,7 +120,7 @@ CSS-framework: bootstrap5.0
 
 
 Рабочий вариант размещен на сервере при помощи Capistrano.
-На сервер используется Postgres.
+На сервере используется Postgres.
 Приложение работает на связке nginx + Passenger.
 
 
