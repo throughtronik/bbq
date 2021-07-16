@@ -8,7 +8,7 @@
 
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=ba9453b9-922a-472a-86f0-ff541b5472b4&lang=ru_RU" type="text/javascript"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=<%=Rails.application.credentials[Rails.env.to_sym][:ymaps][:key]%>&lang=ru_RU" type="text/javascript"></script>
 
 </head>
 
