@@ -37,6 +37,12 @@ class ApplicationPolicy
     false
   end
 
+  protected
+
+  def record_deletable_by_user?
+    record.event.user == user || record.user == user
+  end
+
   class Scope
     attr_reader :user, :scope
 

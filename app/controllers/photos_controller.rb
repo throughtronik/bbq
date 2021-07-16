@@ -18,7 +18,7 @@ class PhotosController < ApplicationController
   def destroy
     message = { notice: I18n.t('controllers.photos.destroyed') }
 
-    if policy(@photo).edit?
+    if policy(@photo).destroy?
       @photo.destroy
     else
       message = { alert: I18n.t('controllers.photos.error') }

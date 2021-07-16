@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   def destroy
     message = { notice: I18n.t('controllers.comments.destroyed') }
 
-    if policy(@comment).edit?
+    if policy(@comment).destroy?
       @comment.destroy!
     else
       message = { alert: I18n.t('controllers.comments.error') }
