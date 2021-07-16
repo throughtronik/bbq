@@ -11,7 +11,7 @@
 - Добавлено новое фото в событии.
 - Добавлена новая подписка в событии.
 
-Рабочий вариант: https://ascending.fun
+Демо: https://ascending.fun
 
 ![alt_text](https://i.ibb.co/VxYv2QL/image.png)
 
@@ -118,8 +118,7 @@ CSS-framework: bootstrap5.0
 
 Галерея для photo: lightbox.
 
-
-Рабочий вариант размещен на сервере при помощи Capistrano.
+Демо размещено на сервере при помощи Capistrano.
 На сервере используется Postgres.
 Приложение работает на связке nginx + Passenger.
 
